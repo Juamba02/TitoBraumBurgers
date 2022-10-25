@@ -35,7 +35,6 @@ header {
 
 h1 {
     color: white;
-    font-family: 'Bebas Neue', cursive;
 }
 
 .barraNavegadora {
@@ -213,4 +212,105 @@ footer {
     color: white;
     align-items: center;
     padding-top: 1em;
+}
+
+/*---------Media Queries---------*/
+
+@media screen and (max-width: 480px) {
+
+    /*---------Header---------*/
+
+    .logoYNombre{
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        width: 50%;
+    }
+
+    .bigote{
+        height: 50%;
+    }
+    h1 {
+        font-size: 1.7em;
+    }
+
+    .barraNavegadora {
+        font-size: small;
+    }
+
+    /*---------Main Index---------*/
+
+    .fotoEpica {
+        font-size: 1.8em;
+    }
+
+    .frase {
+        text-align: center;
+    }
+
+    .botones {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .botonPrincipal {
+        font-size: 1.7em;
+    }
+    .boton1 {
+        margin-bottom: 1em;
+    }
+
+    .wsp {
+        width: 40px;
+    }
+
+    /*---------Main Index---------*/
+
+    .contenedor {
+        padding-top: 7em;
+    }
+
+    .contenedor h2 {
+        font-size: 1.7em;
+        padding-inline: 1em;
+        text-align: center;
+    }
+
+    .divTarjetas {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .tarjeta1, .tarjeta2, .tarjeta3, .tarjeta4 {
+        margin-bottom: 5em;
+        width: 70%;
+    }
+
+    .descripcion {
+        padding: 0.5em;
+    }
+
+    .botonTarjeta {
+        border-radius: 12px;
+        font-size: 1.7em;
+        width: 90%;
+        margin-block: 0.2em;
+    }
+
+    .botonTarjeta:hover {
+        background-color: black;
+    }
+
+}
+
+@media screen and (max-width: 406px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .fotoEpica {
+        font-size: 1.5em;
+    }
+
 }
