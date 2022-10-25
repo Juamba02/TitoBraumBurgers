@@ -15,6 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     position: fixed;
+    top: 0;
     height: 10vh;
     width: 100%;
     margin-bottom: 2em;
@@ -95,7 +96,15 @@ body {
 
 .botonPrincipal:hover {
     background-color: #500802;
+    color: lightgray;
     cursor: pointer;
+}
+
+.wsp {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
 }
 
 
@@ -185,6 +194,10 @@ body {
     cursor: pointer;
     background-color: #272727;
 }
+
+/*---------Main Contacto---------*/
+
+
 
 /*---------Footer---------*/
 
