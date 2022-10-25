@@ -17,6 +17,7 @@ header {
     position: fixed;
     height: 10vh;
     width: 100%;
+    margin-bottom: 2em;
 }
 
 .logoYNombre {
@@ -59,11 +60,46 @@ a {
     font-weight: 800;
 }
 
-/*---------Main---------*/
+/*---------Main Inicio---------*/
 
 body {
     background-color: lightgrey;
 }
+
+.fotoEpica {
+    background-image: url(../img/front-view-burger-with-veggies-and-meat.jpg);
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-size: 4em;
+    padding: 1em;
+}
+
+.botones {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botonPrincipal{
+    background-color: #710c04;
+    color: white;
+    font-size: 1.15em;
+    padding: 0.2em;
+    border-radius: 10px;
+}
+
+.botonPrincipal:hover {
+    background-color: #500802;
+    cursor: pointer;
+}
+
+
+/*---------Main Menú---------*/
 
 .contenedor {
     display: flex;
@@ -126,9 +162,18 @@ body {
     font-family: 'Bebas Neue', cursive;
 }
 
+.descripcion {
+    text-align: center;
+    padding: 1em;
+}
+
+.precio {
+    margin-top: 0.2em;
+    font-size: 2em;
+}
+
 .botonTarjeta {
     font-size: 1.5em;
-    font-family: 'Bebas Neue', cursive;
     color: white;
     background-color: black;
     border-radius: 5px;
@@ -141,10 +186,11 @@ body {
     background-color: #272727;
 }
 
-/*---------Main---------*/
+/*---------Footer---------*/
 
 footer {
     height: 10vh;
+    width: 100%;
     background-color: #710c04;
 }
 
