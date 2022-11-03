@@ -7,6 +7,7 @@
     <title>TitoBraum Burgers</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="shortcut icon" href="./img/bigoton.png" type="image/x-icon">
+    <script defer src="./js/main.js"></script>
 </head>
 <body>
     <header>
@@ -18,17 +19,27 @@
             <ul>
                 <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="./pages/menu.html">Menú</a></li>
-                <li><a href="./pages/pedido.html">Ver Pedido</a></li>
+                <li><a href="" id="btn-pedido">Ver Pedido</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <div id="carrito-container" class="carrito-container">
+            <div id="salir" class="salir"></div>
+            <div class="carrito">
+                <div class="imagenX">
+                    <img src="./img/x.png" alt="" id="x" class="x">
+                </div>
+                <h3>Tu pedido:</h3>
+                <p>Aún no seleccionaste ninguna hamburguesa</p>
+            </div>
+        </div>
         <div class="fotoEpica">
             <h2 class="frase">"¡Llegó el bigoteeeee!" - Tito Braum</h2>
             <p>y con el bigote, llegaron unas buenas hamburguesas.</p>
             <div class="botones">
-                <button class="botonPrincipal boton1">Delivery</button>
-                <button class="botonPrincipal">Take Away</button>
+                <!-- <button class="botonPrincipal boton1">Delivery</button> -->
+                <a href="./pages/menu.html"><button class="botonPrincipal" id="btn-principal">Pedir Ahora</button></a>
             </div>
         </div>
         <img class="wsp" src="./img/logoWhatsapp.png" alt="">
