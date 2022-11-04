@@ -2,45 +2,22 @@ const pedido = document.querySelector("#btn-pedido");
 const carritoContainer = document.querySelector("#carrito-container");
 const salir = document.querySelector("#salir");
 const equis = document.querySelector("#x");
+const divTarjetas = document.querySelector("#divTarjetas");
 
-const hamburguesas = [
-    {
-        id: 1,
-        nombre: "PoroBurger",
-        precio: 1250,
-        cantidad: 0
-    },
-    {
-        id: 2,
-        nombre: "Classic Bigote",
-        precio: 1250,
-        cantidad: 0
-    },
-    {
-        id: 3,
-        nombre: "Avocado Zac",
-        precio: 1250,
-        cantidad: 0
-    },
-    {
-        id: 4,
-        nombre: "Butter Blitz",
-        precio: 1250,
-        cantidad: 0
-    },
-    {
-        id: 5,
-        nombre: "Super Teemo",
-        precio: 1350,
-        cantidad: 0
-    },
-    {
-        id: 6,
-        nombre: "Tito Braum",
-        precio: 1490,
-        cantidad: 0
-    }
-];
+function crearTarjetas(){
+    hamburguesas.forEach((hamburguesa) => {
+        divTarjetas.innerHTML += `
+        <div class="tarjetas">
+            <img src="${hamburguesa.imgSrc}" alt="${hamburguesa.nombre}" class="imgTarjeta">
+            <h5 class="tituloTarjeta">${hamburguesa.nombre}</h5>
+            <p class="descripcion">${hamburguesa.desc}</p>
+            <p class="precio">$${hamburguesa.precio}</p>
+            <button class="botonTarjeta">Agregar a mi pedido</button>
+        </div>
+        `
+    });
+}
+
 
 pedido.addEventListener("click", (event) => {
     event.preventDefault();
@@ -53,4 +30,6 @@ salir.addEventListener("click", () => {
 
 equis.addEventListener("click", () => {
     carritoContainer.classList.remove("container-active");
-})
+});
+
+crearTarjetas();
