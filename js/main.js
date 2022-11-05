@@ -4,9 +4,8 @@ const salir = document.querySelector("#salir");
 const equis = document.querySelector("#x");
 const divTarjetas = document.querySelector("#divTarjetas");
 
-function crearTarjetas(){
-    hamburguesas.forEach((hamburguesa) => {
-        divTarjetas.innerHTML += `
+hamburguesas.forEach((hamburguesa) => {
+    divTarjetas.innerHTML += `
         <div class="tarjetas">
             <img src="${hamburguesa.imgSrc}" alt="${hamburguesa.nombre}" class="imgTarjeta">
             <h5 class="tituloTarjeta">${hamburguesa.nombre}</h5>
@@ -15,8 +14,7 @@ function crearTarjetas(){
             <button class="botonTarjeta">Agregar a mi pedido</button>
         </div>
         `
-    });
-}
+});
 
 
 pedido.addEventListener("click", (event) => {
@@ -32,4 +30,3 @@ equis.addEventListener("click", () => {
     carritoContainer.classList.remove("container-active");
 });
 
-crearTarjetas();
