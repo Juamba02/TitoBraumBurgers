@@ -316,18 +316,19 @@ footer {
     .logoYNombre{
         flex-direction: column-reverse;
         justify-content: space-around;
-        width: 50%;
+        width: 30%;
     }
 
     .bigote{
         height: 50%;
     }
     h1 {
-        font-size: 1.7em;
+        font-size: 1.2em;
     }
 
     .barraNavegadora {
         font-size: small;
+        width: 70%;
     }
 
     /*---------Main Index---------*/
@@ -415,7 +416,7 @@ footer {
     }
 
     .productoEnCarrito p{
-        font-size: 0.8em;
+        font-size: 1.2em;
     }
 }
 
