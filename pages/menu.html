@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="menu.html" class="active">Menú</a></li>
-                <li><a href="" id="btn-pedido">Ver Pedido</a></li>
+                <li><a href="" id="btn-pedido">Ver Pedido <span id="numCarrito" class="numCarrito">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -31,8 +31,14 @@
                 <div class="imagenX">
                     <img src="../img/x.png" alt="" id="x" class="x">
                 </div>
-                <h3>Tu pedido:</h3>
-                <p>Aún no seleccionaste ninguna hamburguesa</p>
+                <div>
+                    <h3>Tu pedido:</h3>
+                </div>
+                <div id="productoEnCarrito">
+
+                </div>
+                <p>Precio total: $<span id="precioTotal">0</span></p>
+                <a href="./pedido.html"><button class="botonTarjeta">Finalizar Pedido</button></a>    
             </div>
         </div>
         <div class="contenedor">

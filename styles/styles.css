@@ -60,6 +60,19 @@ a {
     font-weight: 800;
 }
 
+.numCarrito {
+    display: inline-block;
+    border-radius: 50%;
+    color: #710c04;
+    background-color: white;
+    /* padding-bottom: 0.1em;  */
+    width: 26px;
+    height: 26px;
+    text-align: center;
+
+    line-height: 29px;
+}
+
 /*---------Main Inicio---------*/
 
 body {
@@ -189,6 +202,8 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: all .3s ease-in-out;
+
+    z-index: 1  ;
 }
 
 .container-active {
@@ -197,11 +212,11 @@ body {
 }
 
 .salir {
-    width: 67%;
+    width: 60%;
 }
 
 .carrito {
-    width: 33%;
+    width: 40%;
     height: 100%;
     background-color: lightgrey;
     border-top-left-radius: 30px;
@@ -209,6 +224,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
 }
 
 .imagenX {
@@ -238,6 +254,42 @@ body {
     font-size: 2em;
     margin: 1em 1em;
 }
+
+#productoEnCarrito {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.productoEnCarrito {
+    background-color: white;
+    height: 4em;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    /* border: 1px black solid; */
+    align-items: center;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-right: 0.5em;
+}
+
+.productoEnCarrito img {
+    height: 100%;
+}
+
+.productoEnCarrito p{
+    font-size: 1.5em;
+}
+
+.eliminar {
+    background-color: #e93c3c;
+    color: white;
+    padding: 0.4em;
+}
+
 
 /*---------Footer---------*/
 
@@ -358,6 +410,13 @@ footer {
         width: 0%;
     }
 
+    .productoEnCarrito{
+        width: 90%;
+    }
+
+    .productoEnCarrito p{
+        font-size: 0.8em;
+    }
 }
 
 @media screen and (max-width: 406px) {
