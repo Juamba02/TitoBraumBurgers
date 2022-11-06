@@ -320,14 +320,14 @@ footer {
     }
 
     .bigote{
-        height: 50%;
+        height: 30%;
     }
     h1 {
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     .barraNavegadora {
-        font-size: small;
+        font-size: 0.8em;
         width: 70%;
     }
 
