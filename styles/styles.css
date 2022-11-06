@@ -34,6 +34,7 @@ header {
 }
 
 h1 {
+    text-align: center;
     color: white;
 }
 
@@ -308,6 +309,29 @@ footer {
 }
 
 /*---------Media Queries---------*/
+@media screen and (max-width:850px) {
+    .bigote{
+        height: 70%;
+        width: 70%;
+        margin-left: 100px;
+        margin-right: 20px;
+    }
+
+    .carrito {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .salir {
+        width: 0%;
+    }
+
+    .productoEnCarrito{
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
 
 @media screen and (max-width: 480px) {
 
@@ -322,8 +346,9 @@ footer {
     }
 
     .bigote{
-        height: 30%;
+        height: 40%;
     }
+
     h1 {
         text-align: center;
         font-size: 0.7em;
@@ -427,6 +452,10 @@ footer {
 
     h1 {
         font-size: 1em;
+    }
+
+    .bigote{
+        height: 40%;
     }
 
     .fotoEpica {
