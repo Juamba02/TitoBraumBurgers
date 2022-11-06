@@ -267,7 +267,7 @@ body {
     height: 4em;
     display: flex;
     width: 80%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     /* border: 1px black solid; */
     align-items: center;
     margin-bottom: 1em;
@@ -317,7 +317,8 @@ footer {
         align-items: center;
         flex-direction: column-reverse;
         justify-content: space-around;
-        width: 30%;
+        width: 35%;
+        padding: 0.3em;
     }
 
     .bigote{
@@ -325,12 +326,12 @@ footer {
     }
     h1 {
         text-align: center;
-        font-size: 1em;
+        font-size: 0.7em;
     }
 
     .barraNavegadora {
         font-size: 0.8em;
-        width: 70%;
+        width: 65%;
     }
 
     /*---------Main Index---------*/
@@ -414,18 +415,18 @@ footer {
     }
 
     .productoEnCarrito{
-        width: 90%;
+        width: 95%;
     }
 
     .productoEnCarrito p{
-        font-size: 1.2em;
+        font-size: 1em;
     }
 }
 
 @media screen and (max-width: 406px) {
 
     h1 {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     .fotoEpica {
