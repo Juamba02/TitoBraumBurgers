@@ -10,6 +10,8 @@ const divTarjetas = document.querySelector("#divTarjetas");
 const carritoProductos = document.querySelector("#productoEnCarrito");
 const numCarrito = document.querySelector("#numCarrito");
 const precioTotal = document.querySelector("#precioTotal");
+const modalRandom = document.querySelector("#burgaRandom");
+const botonRandom = document.querySelector("#botonRandom");
 
 // Funciones
 
@@ -39,6 +41,12 @@ const renderTotal = () => {
     precioTotal.innerText = total;
 }
 
+const renderCarrito = () => {
+    renderPedido();
+    renderNumCarrito();
+    renderTotal();
+}
+
 const agregarAlCarrito = (id) => {
     const producto = hamburguesas.find((item) => item.id === id);
     carrito.push(producto);
@@ -46,10 +54,40 @@ const agregarAlCarrito = (id) => {
     renderCarrito();
 }
 
-const renderCarrito = () => {
-    renderPedido();
-    renderNumCarrito();
-    renderTotal();
+const burgaRandom = () => {
+    modalRandom.innerHTML = "";
+    const hamburguesaRandom = hamburguesas[Math.round(Math.random() * 5)];
+    
+    const div = document.createElement("div");
+    div.classList = "tarjetasRandom"
+    div.innerHTML = `
+        <img src="${hamburguesaRandom.imgSrc}" alt="${hamburguesaRandom.nombre}" class="imgTarjeta">
+        <h5 class="tituloTarjeta">${hamburguesaRandom.nombre}</h5>
+        <p class="descripcion">${hamburguesaRandom.desc}</p>
+        <p class="precio">$${hamburguesaRandom.precio}</p>
+        `
+    const boton = document.createElement("button");
+    const botonNoGracias = document.createElement("button");
+    boton.classList = "botonTarjeta";
+    botonNoGracias.classList = "botonNoGracias";
+
+    boton.innerHTML = "Agregar a mi pedido";
+
+    botonNoGracias.innerHTML = "No, gracias";
+
+    boton.addEventListener("click", () => {
+        agregarAlCarrito(hamburguesaRandom.id);
+        modalRandom.classList.remove("container-active");
+    });
+
+    botonNoGracias.addEventListener("click", () => {
+        modalRandom.classList.remove("container-active");
+    });
+
+    div.append(boton);
+    div.append(botonNoGracias);
+
+    modalRandom.append(div);
 }
 
 // Creo las tarjetas en base a los productos que tengo en stock
@@ -95,4 +133,9 @@ salir.addEventListener("click", () => {
 
 equis.addEventListener("click", () => {
     carritoContainer.classList.remove("container-active");
+});
+
+botonRandom.addEventListener("click", () => {
+    modalRandom.classList.add("container-active");
+    burgaRandom();
 });

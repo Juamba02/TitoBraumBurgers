@@ -50,11 +50,22 @@ h1 {
     width: 100%;
 }
 
-a {
+header a {
     color: white;
     font-size: 1.25em;
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
+    transition: all 0.3s;
+    padding: 1px;
+}
+
+header a:hover {
+    border-radius: 5px;
+    background-color: #b61105;
+}
+
+header a:active {
+    background-color: #8e1209;
 }
 
 .active {
@@ -130,6 +141,11 @@ body {
     align-items: center;
     padding-top: 10em;
 }
+
+.info {
+    text-align: center;
+}
+
 .contenedor h2 {
     font-size: 2em;
 }
@@ -155,13 +171,12 @@ body {
     margin-bottom: 10em;
 }
 
-
-
 .imgTarjeta {
     width: 100%;
 }
 
 .tituloTarjeta {
+    text-align: center;
     font-size: 1.5em;
     font-family: 'Bebas Neue', cursive;
 }
@@ -190,6 +205,14 @@ body {
     background-color: #272727;
 }
 
+.random {
+    width: 20%;
+    margin-top: 4em;
+    margin-bottom: 1em;
+}
+
+
+
 /*---------Carrito---------*/
 
 .carrito-container {
@@ -205,6 +228,47 @@ body {
     transition: all .3s ease-in-out;
 
     z-index: 1  ;
+}
+
+.modal-container {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.211);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+
+    z-index: 1  ;
+}
+
+.tarjetasRandom{
+    border: 1px black solid;
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #710c04;
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
+}
+
+.botonNoGracias {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+    border: none;
+    margin-bottom: 2em;
+    font-size: 1.25em;
+}
+
+.botonNoGracias:hover {
+    cursor: pointer;
 }
 
 .container-active {
@@ -291,6 +355,14 @@ body {
     padding: 0.4em;
 }
 
+.eliminar:hover {
+    cursor: pointer;
+    background-color: #c92d2d;
+}
+
+.eliminar:active {
+    background-color: #881409;
+}
 
 /*---------Footer---------*/
 
@@ -347,7 +419,7 @@ footer {
 
     .bigote {
         margin: 0;
-        height: 70%;
+        height: 75%;
         width: 45%;
     }
 
@@ -428,6 +500,10 @@ footer {
 
     .botonTarjeta:hover {
         background-color: black;
+    }
+
+    .tarjetasRandom {
+        width: 80%;
     }
 
     /*---------Carrito---------*/
