@@ -6,7 +6,7 @@ const hamburguesas = [
         stock: 100,
         desc: "Doble Medallon de Carne, Aros de cebolla, Cheddar y Salsa BIG Braum.",
         imgSrc: "../img/Big Onion.jpg",
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 1,
@@ -15,7 +15,7 @@ const hamburguesas = [
         desc: "Doble Medallón de Carne, Cheddar, Pepinillos, Lechuga y Salsa TitoBraum.",
         stock: 100,
         imgSrc: "../img/Clasica.jpg",
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 2,
@@ -24,7 +24,7 @@ const hamburguesas = [
         desc: "Doble Medallón de Carne, Cheddar, Crema de Palta, y Cebolla Encurtida.",
         stock: 100,
         imgSrc: "../img/Avocado.jpg",
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 3,
@@ -33,7 +33,7 @@ const hamburguesas = [
         desc: "Doble Medallón de Carne, Manteca, Cebolla estofada y Cheddar.",
         stock: 100,
         imgSrc: "../img/ButterBurger.jpg",
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 4,
@@ -42,7 +42,7 @@ const hamburguesas = [
         desc: "Doble Medallón de Carne, Queso Tomme y Hongos de Pino Tratados.",
         stock: 100,
         imgSrc: "../img/SuperTeemo.jpg",
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 5,
@@ -51,6 +51,6 @@ const hamburguesas = [
         desc: "Triple Medallón de Carne, Cheddar, Mozzarella, y Barbacoa TitoBraum.",
         stock: 100,
         imgSrc: "../img/TitoBraum.jpg",
-        cantidad: 0
+        cantidad: 1
     }
 ];

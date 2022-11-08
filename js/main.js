@@ -1,13 +1,15 @@
-// Declaro el array del carrito y declaro como variables los objetos del DOM que voy a usar
+// Recibo del LS el contenido del carrito y si es null lo declaro como array vacío
 
-const carrito = [];
+const carritoLS = localStorage.getItem("carrito");
+let carrito = JSON.parse(carritoLS);
+if (carrito == null){
+    carrito = [];
+}
+
+// Declaro como variables los objetos del DOM que voy a usar
 
 const pedido = document.querySelector("#btn-pedido");
-const carritoContainer = document.querySelector("#carrito-container");
-const salir = document.querySelector("#salir");
-const equis = document.querySelector("#x");
 const divTarjetas = document.querySelector("#divTarjetas");
-const carritoProductos = document.querySelector("#productoEnCarrito");
 const numCarrito = document.querySelector("#numCarrito");
 const precioTotal = document.querySelector("#precioTotal");
 const modalRandom = document.querySelector("#burgaRandom");
@@ -15,44 +17,30 @@ const botonRandom = document.querySelector("#botonRandom");
 
 // Funciones
 
-const renderPedido = () => {
-    carritoProductos.innerHTML = "";
-
-    carrito.forEach((hamburguesa) => {
-        const div = document.createElement("div");
-        div.className = "productoEnCarrito"
-        div.innerHTML =`
-        <img src="${hamburguesa.imgSrc}" alt="">
-            <p>${hamburguesa.nombre}</p>
-            <p>Precio: $${hamburguesa.precio}</p>
-            <p>x${hamburguesa.cantidad}</p>
-            <button class="eliminar">Eliminar</button>
-            `
-    carritoProductos.append(div);
-    });
-}
-
 const renderNumCarrito = () => {
-    numCarrito.innerText = carrito.length;
+    numCarrito.innerText = carrito.reduce((total, pedido) => total += pedido.cantidad, 0);
 }
 
-const renderTotal = () => {
-    let total = carrito.reduce((total, pedido) => total += pedido.precio, 0);
-    precioTotal.innerText = total;
-}
 
-const renderCarrito = () => {
-    renderPedido();
-    renderNumCarrito();
-    renderTotal();
-}
 
 const agregarAlCarrito = (id) => {
     const producto = hamburguesas.find((item) => item.id === id);
-    carrito.push(producto);
+    
+    for (const i in carrito){
+        if(carrito[i].nombre === producto.nombre){
+            carrito[i].cantidad++;
+            carrito[i].precio = carrito[i].precio + carrito[i].precio;
+            renderNumCarrito();
+            return;
+        }
+    } 
 
-    renderCarrito();
+        carrito.push(producto);
+
+    renderNumCarrito();
 }
+
+
 
 const burgaRandom = () => {
     modalRandom.innerHTML = "";
@@ -92,7 +80,7 @@ const burgaRandom = () => {
 
 // Creo las tarjetas en base a los productos que tengo en stock
 
-hamburguesas.forEach((hamburguesa) => {
+hamburguesas.forEach(hamburguesa => {
     if (hamburguesa.stock == 0){
         return
     }
@@ -120,20 +108,18 @@ hamburguesas.forEach((hamburguesa) => {
     divTarjetas.append(div);
 });
 
-// Creo el evento para abrir el modal del carrito
+// Renderizo el número del carrito por si habia algo en el LS
 
-pedido.addEventListener("click", (event) => {
-    event.preventDefault();
-    carritoContainer.classList.add("container-active");
+renderNumCarrito();
+
+// Creo el evento para mandar el arry del carrito al LS
+
+pedido.addEventListener("click", () => {
+    const carritoJSON = JSON.stringify(carrito);
+    localStorage.setItem("carrito", carritoJSON);
 });
 
-salir.addEventListener("click", () => {
-    carritoContainer.classList.remove("container-active");
-});
-
-equis.addEventListener("click", () => {
-    carritoContainer.classList.remove("container-active");
-});
+// Creo el evento para abrir la tarjeta con la hamburguesa aleatoria
 
 botonRandom.addEventListener("click", () => {
     modalRandom.classList.add("container-active");
