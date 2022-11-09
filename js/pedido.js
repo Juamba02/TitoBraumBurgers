@@ -10,11 +10,13 @@ const botonPedido = document.querySelector("#botonFinalizarPedido");
 const botonInicio = document.querySelector("#btnInicio");
 const botonMenu = document.querySelector("#btnMenu");
 const precioTotal = document.querySelector("#precioTotal");
+const modalPedido = document.querySelector("#modalPedido");
+const volverAlInicio = document.querySelector("#volverAlInicio");
 
 // Funciones
 
 const renderTotal = () => {
-    let total = carrito.reduce((total, pedido) => total += pedido.precio, 0);
+    let total = carrito.reduce((total, pedido) => total += pedido.precioAct, 0);
     precioTotal.innerText = total;
 }
 
@@ -28,13 +30,56 @@ carrito.forEach(hamburguesa => {
     div.innerHTML = `
         <img src="${hamburguesa.imgSrc}" alt="" srcset="" class="imgPedido">
         <p>${hamburguesa.nombre}</p>
-        <div class="cantidad">
-            <p class="agregarORestar">-</p>
-            <p>X${hamburguesa.cantidad}</p>
-            <p class="agregarORestar">+</p>
-        </div>
-        <p>$${hamburguesa.precio}</p>
     `
+
+    // Creo un p para poner el precio y luego poder actualizarlo cuando se utilicen los botones
+
+    const p = document.createElement("p");
+    p.innerHTML = `$${hamburguesa.precioAct}`;
+
+    // Creo un div para agrupar los botones de añadir y quitar con la cantidad
+
+    const divCantidad = document.createElement("div");
+    divCantidad.classList = "cantidad";
+    divCantidad.id = "cant" + hamburguesa.id;
+
+    // Creo el p para poner la cantidad del producto que tiene en el pedido el usuario
+
+    const pCantidad = document.createElement("p");
+    pCantidad.innerHTML = `x${hamburguesa.cantidad}`;
+
+    // Creo el botón de restar
+
+    const restar = document.createElement("button");
+    restar.classList = "agregarORestar";
+    restar.innerText = "-";
+    restar.addEventListener("click", () => {
+        if(hamburguesa.cantidad > 1){
+            let index = carrito.indexOf(hamburguesa);
+            carrito[index].cantidad = carrito[index].cantidad - 1;
+            carrito[index].precioAct = carrito[index].precioAct - carrito[index].precio;
+            p.innerText = `$${hamburguesa.precioAct}`;
+            pCantidad.innerHTML = `x${hamburguesa.cantidad}`;
+            renderTotal();
+        }
+        
+    })
+
+    // Creo el botón de agregar
+
+    const sumar = document.createElement("button");
+    sumar.classList = "agregarORestar";
+    sumar.innerText = "+";
+    sumar.addEventListener("click", () => {
+        let index = carrito.indexOf(hamburguesa);
+            carrito[index].cantidad = carrito[index].cantidad + 1;
+            carrito[index].precioAct = carrito[index].precioAct + carrito[index].precio;
+            p.innerText = `$${hamburguesa.precioAct}`;
+            pCantidad.innerHTML = `x${hamburguesa.cantidad}`;
+            renderTotal();
+    })
+    
+    // Creo un boton para eliminar el producto entero y no unidad por unidad
 
     const eliminar = document.createElement("button");
     eliminar.classList = "eliminar";
@@ -48,6 +93,14 @@ carrito.forEach(hamburguesa => {
         renderTotal();
     })
 
+    // Agrego todo al div contenedor y luego a la página
+
+    divCantidad.append(restar);
+    divCantidad.append(pCantidad);
+    divCantidad.append(sumar);
+
+    div.append(p);
+    div.append(divCantidad);
     div.append(eliminar);
     
     renderTotal();
@@ -55,12 +108,24 @@ carrito.forEach(hamburguesa => {
     paginaPedido.append(div);
 });
 
+
+
 botonInicio.addEventListener("click", () => {
     const carritoLS = JSON.stringify(carrito);
     localStorage.setItem("carrito", carritoLS);
-})
+});
 
 botonMenu.addEventListener("click", () => {
     const carritoLS = JSON.stringify(carrito);
     localStorage.setItem("carrito", carritoLS);
-})
+});
+
+botonPedido.addEventListener("click", () => {
+    if(carrito.length > 0){
+        modalPedido.classList.add("container-active");
+    }
+});
+
+volverAlInicio.addEventListener("click", () => {
+    localStorage.setItem("carrito", "[]");
+});

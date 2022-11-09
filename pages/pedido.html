@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Pedido</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="shortcut icon" href="../img/bigoton.png" type="image/x-icon">
+    <script defer src="../js/productos.js"></script>
     <script defer src="../js/pedido.js"></script>
 </head>
 <body>
@@ -22,22 +24,23 @@
         </nav>
     </header>
     <main>
-        <h3 class="tuPedido">Tu pedido:</h3>
-        <div class="paginaPedido" id="paginaPedido">
-            <!-- <div class="containerTarjetasPedido">
-                <div class="tarjetaPedido">
-                    <img src="../img/Avocado.jpg" alt="" srcset="" class="imgPedido">
-                    <p>Avocado Zac</p>
-                    <div class="cantidad">
-                        <p class="agregarORestar">-</p>
-                        <p>X3</p>
-                        <p class="agregarORestar">+</p>
-                    </div>
-                    <p>$3750</p>
-                    <p class="eliminar">X</p>
+        <div class="modal-container" id="modalPedido">
+            <div class="tarjetaFinalizarPedido">
+                <div class="pedidoAceptado">
+                    <h2>Tu pedido fue aceptado</h2>
+                    <p>Dentro de 30 minutos va a estar listo para que lo pases a buscar por el local.</p>
                 </div>
-            </div> -->
-            
+                <img src="../img/poro.png" alt="" class="porito">
+                <div>
+                    <a href="../index.html"><button class="botonTarjeta" id="volverAlInicio">Volver al inicio</button></a>
+                    <p>Gracias por tu compra, esperamos volver a verte pronto! 🍔🍟😉</p>
+                </div>
+            </div>
+        </div>
+        <h3 class="tuPedido">Tu pedido:</h3>
+        <p class="subtitulo">(Abajo de los productos tenes un botón para finalizar tu pedido)</p>
+        <div class="paginaPedido" id="paginaPedido">
+            <!-- JavaScript pone las tarjetas de los pedidos acá -->
         </div>
         <div class="finalizarPedido">
             <button class="botonFinalizarPedido" id="botonFinalizarPedido">Finalizar Pedido [$<span id="precioTotal">0</span>]</button>

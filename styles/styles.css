@@ -77,7 +77,6 @@ header a:active {
     border-radius: 50%;
     color: #710c04;
     background-color: white;
-    /* padding-bottom: 0.1em;  */
     width: 26px;
     height: 26px;
     text-align: center;
@@ -297,6 +296,10 @@ body {
     font-size: 3em;
 }
 
+.subtitulo{
+    text-align: center;
+}
+
 .paginaPedido {
     display: flex;
     flex-direction: column;
@@ -350,14 +353,23 @@ body {
     font-size: 1.2em;
     color: white;
     background-color: #3aa8a8;
+    border: white;
+}
+
+.agregarORestar:hover{
+    cursor: pointer;
+    background-color: #327f7f;
 }
 
 .eliminar {
     background-color: #e93c3c;
+    width: 30px;
+    height: 30px;
     color: white;
-    padding-inline: 0.4em;
-    margin-right: 0.3em;
+    padding-bottom: 1.2em;
+    margin-right: 0.7em;
     border: black 1px solid;
+    font-size: 1.4em;
 }
 
 .eliminar:hover {
@@ -389,6 +401,35 @@ body {
     background-color: #272727;
 }
 
+.tarjetaFinalizarPedido{
+    border: 1px black solid;
+    width: 34%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tarjetaFinalizarPedido div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 1em;
+    text-align: center;
+}
+
+.pedidoAceptado{
+    color: green;
+}
+
+.porito{
+    width: 50%;
+}
+
 /*---------Footer---------*/
 
 footer {
@@ -414,21 +455,6 @@ footer {
         width: 70%;
         margin-left: 100px;
         margin-right: 20px;
-    }
-
-    .carrito {
-        width: 100%;
-        border-radius: 0;
-    }
-
-    .salir {
-        width: 0%;
-    }
-
-    .productoEnCarrito{
-        width: 95%;
-        display: flex;
-        justify-content: space-between;
     }
 }
 
@@ -537,7 +563,8 @@ footer {
 
     .tarjetaPedido{
         width: 100%;
-        margin-inline: 0.1em;
+        margin-inline: 0.5em;
+        font-size: 0.8em;
     }
 
     .imgPedido {
@@ -545,26 +572,30 @@ footer {
     }
 
     .cantidad{
-        width: 15%;
+        width: 20%;
+        font-size: 1.2em;
+        line-height: 20px;
     }
 
-    /*---------Carrito---------*/
+    .agregarORestar{
+        line-height: 22px;
+    }
 
-    .carrito {
+    .eliminar{
+        padding-bottom: 0;
+    }
+
+    .tarjetaFinalizarPedido{
         width: 100%;
-        border-radius: 0;
     }
 
-    .salir {
-        width: 0%;
+    .tarjetaFinalizarPedido div {
+        font-size: 1.2em;
+        margin-inline: 0.3em;
     }
 
-    .productoEnCarrito{
-        width: 95%;
-    }
-
-    .productoEnCarrito p{
-        font-size: 1em;
+    #volverAlInicio{
+        width: 100%;
     }
 }
 

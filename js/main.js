@@ -14,6 +14,8 @@ const numCarrito = document.querySelector("#numCarrito");
 const precioTotal = document.querySelector("#precioTotal");
 const modalRandom = document.querySelector("#burgaRandom");
 const botonRandom = document.querySelector("#botonRandom");
+const botonInicio = document.querySelector("#btnInicio");
+const botonMenu = document.querySelector("#btnMenu");
 
 // Funciones
 
@@ -29,13 +31,13 @@ const agregarAlCarrito = (id) => {
     for (const i in carrito){
         if(carrito[i].nombre === producto.nombre){
             carrito[i].cantidad++;
-            carrito[i].precio = carrito[i].precio + carrito[i].precio;
+            carrito[i].precioAct = carrito[i].precioAct + carrito[i].precio;
             renderNumCarrito();
             return;
         }
     } 
 
-        carrito.push(producto);
+    carrito.push(producto);
 
     renderNumCarrito();
 }
@@ -125,3 +127,13 @@ botonRandom.addEventListener("click", () => {
     modalRandom.classList.add("container-active");
     burgaRandom();
 });
+
+botonInicio.addEventListener("click", () => {
+    const carritoJSON = JSON.stringify(carrito);
+    localStorage.setItem("carrito", carritoJSON);
+})
+
+botonMenu.addEventListener("click", () => {
+    const carritoJSON = JSON.stringify(carrito);
+    localStorage.setItem("carrito", carritoJSON);
+})
