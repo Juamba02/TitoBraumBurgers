@@ -23,11 +23,11 @@ const renderTotal = () => {
 // Creo tarjetas para cada producto que tiene el usuario en el pedido
 
 carrito.forEach(hamburguesa => {
-    const div = document.createElement("div");
-    div.classList = "tarjetaPedido";
-    div.id = "div" + hamburguesa.id;
+    const li = document.createElement("li");
+    li.classList = "tarjetaPedido";
+    li.id = "li" + hamburguesa.id;
 
-    div.innerHTML = `
+    li.innerHTML = `
         <img src="${hamburguesa.imgSrc}" alt="" srcset="" class="imgPedido">
         <p>${hamburguesa.nombre}</p>
     `
@@ -83,13 +83,13 @@ carrito.forEach(hamburguesa => {
 
     const eliminar = document.createElement("button");
     eliminar.classList = "eliminar";
-    eliminar.innerText = "X";
+    eliminar.innerHTML = `<img src="../img/trashCan.png" alt="">`;
 
     eliminar.addEventListener("click", () => {
         let index = carrito.indexOf(hamburguesa);
         carrito.splice(index, 1);
 
-        paginaPedido.querySelector("#div" + hamburguesa.id).remove();
+        paginaPedido.querySelector("#li" + hamburguesa.id).remove();
         renderTotal();
     })
 
@@ -99,13 +99,13 @@ carrito.forEach(hamburguesa => {
     divCantidad.append(pCantidad);
     divCantidad.append(sumar);
 
-    div.append(p);
-    div.append(divCantidad);
-    div.append(eliminar);
+    li.append(p);
+    li.append(divCantidad);
+    li.append(eliminar);
     
     renderTotal();
 
-    paginaPedido.append(div);
+    paginaPedido.append(li);
 });
 
 
