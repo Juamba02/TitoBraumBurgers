@@ -7,6 +7,7 @@
     <title>Tu Pedido</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="shortcut icon" href="../img/bigoton.png" type="image/x-icon">
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="../js/productos.js"></script>
     <script defer src="../js/pedido.js"></script>
 </head>
@@ -24,6 +25,19 @@
         </nav>
     </header>
     <main>
+        <div class="modal-container" id="modalCarritoVacio">
+            <div class="tarjetaFinalizarPedido">
+                <div class="pedidoVacio">
+                    <h2>Te perdiste?</h2>
+                    <p>Parece que tu pedido esta vacío.</p>
+                </div>
+                <img src="../img/blitzy.png" alt="" class="blitzy">
+                <div>
+                    <a href="./menu.html"><button class="botonTarjeta">Ir al menú</button></a>
+                    <p>Elegí unas buenas burgas y volvé! 🍔🍟😉</p>
+                </div>
+            </div>
+        </div>
         <div class="modal-container" id="modalPedido">
             <div class="tarjetaFinalizarPedido">
                 <div class="pedidoAceptado">

@@ -435,6 +435,14 @@ body {
     width: 50%;
 }
 
+.pedidoVacio{
+    color: rgb(226, 23, 23);
+}
+
+.blitzy{
+    width: 35%;
+}
+
 /*---------Footer---------*/
 
 footer {

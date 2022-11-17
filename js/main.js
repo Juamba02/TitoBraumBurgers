@@ -1,10 +1,6 @@
 // Recibo del LS el contenido del carrito y si es null lo declaro como array vacío
 
-const carritoLS = localStorage.getItem("carrito");
-let carrito = JSON.parse(carritoLS);
-if (carrito == null){
-    carrito = [];
-}
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // Declaro como variables los objetos del DOM que voy a usar
 
@@ -28,6 +24,19 @@ const renderNumCarrito = () => {
 const agregarAlCarrito = (id) => {
     const producto = hamburguesas.find((item) => item.id === id);
     
+    Toastify({
+        text: "Producto agregado!",
+        duration: 1000,
+        backgroundColor: "#710c04",
+        offset: {
+            x: 110,
+            y: 60
+        },
+        style: {
+            border: "black 3px solid"
+        }
+    }).showToast();
+
     for (const i in carrito){
         if(carrito[i].nombre === producto.nombre){
             carrito[i].cantidad++;
@@ -41,7 +50,6 @@ const agregarAlCarrito = (id) => {
 
     renderNumCarrito();
 }
-
 
 
 const burgaRandom = () => {
@@ -83,7 +91,7 @@ const burgaRandom = () => {
 // Creo las tarjetas en base a los productos que tengo en stock
 
 hamburguesas.forEach(hamburguesa => {
-    if (hamburguesa.stock == 0){
+    if (hamburguesa.stock === 0){
         return
     }
 

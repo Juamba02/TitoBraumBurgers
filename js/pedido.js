@@ -12,6 +12,7 @@ const botonMenu = document.querySelector("#btnMenu");
 const precioTotal = document.querySelector("#precioTotal");
 const modalPedido = document.querySelector("#modalPedido");
 const volverAlInicio = document.querySelector("#volverAlInicio");
+const modalCarritoVacio = document.querySelector("#modalCarritoVacio");
 
 // Funciones
 
@@ -93,7 +94,7 @@ carrito.forEach(hamburguesa => {
         renderTotal();
     })
 
-    // Agrego todo al div contenedor y luego a la página
+    // Agrego todo al li y luego a la página
 
     divCantidad.append(restar);
     divCantidad.append(pCantidad);
@@ -121,9 +122,7 @@ botonMenu.addEventListener("click", () => {
 });
 
 botonPedido.addEventListener("click", () => {
-    if(carrito.length > 0){
-        modalPedido.classList.add("container-active");
-    }
+    carrito.length > 0 ? modalPedido.classList.add("container-active") : modalCarritoVacio.classList.add("container-active");
 });
 
 volverAlInicio.addEventListener("click", () => {
