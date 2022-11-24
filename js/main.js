@@ -21,19 +21,18 @@ const renderNumCarrito = () => {
 
 
 
-const agregarAlCarrito = (id) => {
-    const producto = hamburguesas.find((item) => item.id === id);
+const agregarAlCarrito = async (id) => {
+    const resp = await fetch("../data.json");
+    const data = await resp.json();
+    const producto = data.find((item) => item.id === id);
     
     Toastify({
         text: "Producto agregado!",
         duration: 1000,
-        backgroundColor: "#710c04",
+        backgroundColor: "#319535",
         offset: {
             x: 110,
             y: 60
-        },
-        style: {
-            border: "black 3px solid"
         }
     }).showToast();
 
@@ -53,81 +52,89 @@ const agregarAlCarrito = (id) => {
 
 
 const burgaRandom = () => {
-    modalRandom.innerHTML = "";
-    const hamburguesaRandom = hamburguesas[Math.round(Math.random() * 5)];
-    
-    const div = document.createElement("div");
-    div.classList = "tarjetasRandom"
-    div.innerHTML = `
-        <img src="${hamburguesaRandom.imgSrc}" alt="${hamburguesaRandom.nombre}" class="imgTarjeta">
-        <h5 class="tituloTarjeta">${hamburguesaRandom.nombre}</h5>
-        <p class="descripcion">${hamburguesaRandom.desc}</p>
-        <p class="precio">$${hamburguesaRandom.precio}</p>
-        `
-    const boton = document.createElement("button");
-    const botonNoGracias = document.createElement("button");
-    boton.classList = "botonTarjeta";
-    botonNoGracias.classList = "botonNoGracias";
+    fetch("../data.json")
+        .then((resp) => resp.json())
+        .then((data) => {
+            modalRandom.innerHTML = "";
+        const hamburguesaRandom = data[Math.round(Math.random() * 5)];
+        
+        const div = document.createElement("div");
+        div.classList = "tarjetasRandom"
+        div.innerHTML = `
+            <img src="${hamburguesaRandom.imgSrc}" alt="${hamburguesaRandom.nombre}" class="imgTarjeta">
+            <h5 class="tituloTarjeta">${hamburguesaRandom.nombre}</h5>
+            <p class="descripcion">${hamburguesaRandom.desc}</p>
+            <p class="precio">$${hamburguesaRandom.precio}</p>
+            `
+        const boton = document.createElement("button");
+        const botonNoGracias = document.createElement("button");
+        boton.classList = "botonTarjeta";
+        botonNoGracias.classList = "botonNoGracias";
 
-    boton.innerHTML = "Agregar a mi pedido";
+        boton.innerHTML = "Agregar a mi pedido";
 
-    botonNoGracias.innerHTML = "No, gracias";
+        botonNoGracias.innerHTML = "No, gracias";
 
-    boton.addEventListener("click", () => {
-        agregarAlCarrito(hamburguesaRandom.id);
-        modalRandom.classList.remove("container-active");
-    });
+        boton.addEventListener("click", () => {
+            agregarAlCarrito(hamburguesaRandom.id);
+            modalRandom.classList.remove("container-active");
+        });
 
-    botonNoGracias.addEventListener("click", () => {
-        modalRandom.classList.remove("container-active");
-    });
+        botonNoGracias.addEventListener("click", () => {
+            modalRandom.classList.remove("container-active");
+        });
 
-    div.append(boton);
-    div.append(botonNoGracias);
+        div.append(boton);
+        div.append(botonNoGracias);
 
-    modalRandom.append(div);
+        modalRandom.append(div);
+        })
 }
 
 // Creo las tarjetas en base a los productos que tengo en stock
+fetch("../data.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+        data.forEach(hamburguesa => {
+            if (hamburguesa.stock === 0){
+                return
+            }
+        
+            const div = document.createElement("div");
+            div.className = "tarjetas";
+        
+            div.innerHTML += `
+                    <img src="${hamburguesa.imgSrc}" alt="${hamburguesa.nombre}" class="imgTarjeta">
+                    <h5 class="tituloTarjeta">${hamburguesa.nombre}</h5>
+                    <p class="descripcion">${hamburguesa.desc}</p>
+                    <p class="precio">$${hamburguesa.precio}</p>
+                `
+        
+            const button = document.createElement("button");
+            button.className = "botonTarjeta";
+            button.innerHTML = "Agregar a mi pedido";
+        
+            button.addEventListener("click", () => {
+                agregarAlCarrito(hamburguesa.id);
+            });
+        
+            div.append(button);
+        
+            divTarjetas.append(div);
+        });
+        
+        // Renderizo el número del carrito por si habia algo en el LS
+        
+        renderNumCarrito();
+        
+        // Creo el evento para mandar el arry del carrito al LS
+        
+        pedido.addEventListener("click", () => {
+            const carritoJSON = JSON.stringify(carrito);
+            localStorage.setItem("carrito", carritoJSON);
+        });
+    })
 
-hamburguesas.forEach(hamburguesa => {
-    if (hamburguesa.stock === 0){
-        return
-    }
-
-    const div = document.createElement("div");
-    div.className = "tarjetas";
-
-    div.innerHTML += `
-            <img src="${hamburguesa.imgSrc}" alt="${hamburguesa.nombre}" class="imgTarjeta">
-            <h5 class="tituloTarjeta">${hamburguesa.nombre}</h5>
-            <p class="descripcion">${hamburguesa.desc}</p>
-            <p class="precio">$${hamburguesa.precio}</p>
-        `
-
-    const button = document.createElement("button");
-    button.className = "botonTarjeta";
-    button.innerHTML = "Agregar a mi pedido";
-
-    button.addEventListener("click", () => {
-        agregarAlCarrito(hamburguesa.id);
-    });
-
-    div.append(button);
-
-    divTarjetas.append(div);
-});
-
-// Renderizo el número del carrito por si habia algo en el LS
-
-renderNumCarrito();
-
-// Creo el evento para mandar el arry del carrito al LS
-
-pedido.addEventListener("click", () => {
-    const carritoJSON = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoJSON);
-});
 
 // Creo el evento para abrir la tarjeta con la hamburguesa aleatoria
 

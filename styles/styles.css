@@ -407,8 +407,9 @@ body {
 }
 
 .tarjetaFinalizarPedido{
+    padding: 1em;
     border: 1px black solid;
-    width: 34%;
+    width: 50%;
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -417,6 +418,8 @@ body {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    overflow-y: auto;
+
 }
 
 .tarjetaFinalizarPedido div{
@@ -442,6 +445,36 @@ body {
 .blitzy{
     width: 35%;
 }
+
+.divAclaracion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    display: block;
+    width: 80%;
+    margin-top: 0px;
+    margin-bottom: 1em;
+}
+
+form{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+#botonesForm{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 
 /*---------Footer---------*/
 
@@ -614,6 +647,10 @@ footer {
 
     #volverAlInicio{
         width: 100%;
+    }
+
+    .swal2-input{
+        width: 70%;
     }
 }
 

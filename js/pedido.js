@@ -11,8 +11,17 @@ const botonInicio = document.querySelector("#btnInicio");
 const botonMenu = document.querySelector("#btnMenu");
 const precioTotal = document.querySelector("#precioTotal");
 const modalPedido = document.querySelector("#modalPedido");
+const modalPedidoDelivery = document.querySelector("#modalPedidoDelivery")
 const volverAlInicio = document.querySelector("#volverAlInicio");
+const volverAlInicio2 = document.querySelector("#volverAlInicio2")
 const modalCarritoVacio = document.querySelector("#modalCarritoVacio");
+const modalForm = document.querySelector("#modalForm");
+const botonForm = document.querySelector("#enviarForm");
+const cancelarForm = document.querySelector("#cancelarForm");
+const form1 = document.querySelector("#swal-input1");
+const form2 = document.querySelector("#swal-input2");
+const form3 = document.querySelector("#swal-input3");
+const form4 = document.querySelector("#swal-input4");
 
 // Funciones
 
@@ -122,9 +131,71 @@ botonMenu.addEventListener("click", () => {
 });
 
 botonPedido.addEventListener("click", () => {
-    carrito.length > 0 ? modalPedido.classList.add("container-active") : modalCarritoVacio.classList.add("container-active");
+    if(carrito.length > 0){
+        Swal.fire({
+            icon: 'question',
+            title: 'Elija la forma de recibir su pedido',
+            text: '(Recordá que el delivery cuesta $300 extra)',
+            html: 
+            '<p>(Recordá que el delivery cuesta $300 extra)</p>' +
+            '<div class="divAclaracion"' +
+                '<label for="textForm">Aclaraciones del pedido:</label>' +
+                '<textarea name="" id="textForm" class="input"></textarea>' +
+            '</div>',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Delivery',
+            denyButtonText: `Take Away`,
+            cancelButtonText: 'Cancelar',
+            denyButtonColor: 'black',
+            confirmButtonColor: 'black',
+            cancelButtonColor: 'black'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                modalForm.classList.add("container-active");
+            }else if(result.isDenied){
+                modalPedido.classList.add("container-active");
+            }
+        })
+    }else{
+        modalCarritoVacio.classList.add("container-active");
+    }
 });
+
+botonForm.addEventListener("click", () => {
+    if(form1.value,form2.value,form3.value,form4.value != ``){
+        form1.value = '';
+        form2.value = '';
+        form3.value = '';
+        form4.value = '';
+        modalForm.classList.remove("container-active");
+        modalPedidoDelivery.classList.add("container-active");
+    }else{
+        Toastify({
+            text: "Recordá rellenar todos los datos",
+            duration: 1000,
+            backgroundColor: "#b61105",
+            offset: {
+                x: 110,
+                y: 60
+            },
+        }).showToast();
+    }
+
+})
+
+cancelarForm.addEventListener("click", () => {
+    modalForm.classList.remove("container-active");
+})
 
 volverAlInicio.addEventListener("click", () => {
     localStorage.setItem("carrito", "[]");
 });
+
+volverAlInicio2.addEventListener("click", () => {
+    localStorage.setItem("carrito", "[]");
+});
+
+modalPedido.addEventListener("click", () => {
+
+})
