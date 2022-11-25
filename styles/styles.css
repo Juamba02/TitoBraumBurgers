@@ -406,6 +406,49 @@ body {
     background-color: #272727;
 }
 
+.modalFinPedido{
+    padding: 1em;
+    border: 1px black solid;
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.modalDatos{
+    padding: 1em;
+    border: 1px black solid;
+    width: 30%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.botonDatos{
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
+.botonDatos:hover{
+    cursor: pointer;
+    background-color: #272727;
+}
+
 .tarjetaFinalizarPedido{
     padding: 1em;
     border: 1px black solid;
@@ -652,6 +695,11 @@ footer {
     .swal2-input{
         width: 70%;
     }
+
+    .modalDatos{
+        width: 100%;
+        height: 35%;
+    }
 }
 
 @media screen and (max-width: 406px) {
@@ -662,6 +710,11 @@ footer {
 
     .fotoEpica {
         font-size: 1.5em;
+    }
+
+    .modalDatos{
+        width: 100%;
+        height: 35%;
     }
 
 }

@@ -27,7 +27,7 @@
     </header>
     <main>
         <div class="modal-container" id="modalCarritoVacio">
-            <div class="tarjetaFinalizarPedido">
+            <div class="modalFinPedido">
                 <div class="pedidoVacio">
                     <h2>Te perdiste?</h2>
                     <p>Parece que tu pedido esta vacío.</p>
@@ -40,11 +40,9 @@
             </div>
         </div>
         <div class="modal-container" id="modalForm">
-            <div class="tarjetaFinalizarPedido">
+            <div class="modalDatos">
                 <h2>Ingresá tus datos</h2>
                 <form action="">
-                    <label for="swal-input1">Nombre:</label>
-                    <input id="swal-input1" class="input" required>
                     <label for="swal-input2">Calle:</label>
                     <input id="swal-input2" class="input" required>
                     <label for="swal-input3">Altura:</label>
@@ -54,14 +52,29 @@
                     <!-- <p class="textoForm">Aclaraciones del pedido:</p>
                     <textarea name="" id="" cols="30" rows="10" class="input"></textarea> -->
                     <div class="botonesForm" id= "botonesForm">
-                        <button type="button" class="botonFinalizarPedido enviarForm" id="enviarForm">Confirmar</button>
-                        <button type="button" class="botonFinalizarPedido" id="cancelarForm">Cancelar</button>
+                        <button type="button" class="botonDatos enviarForm" id="enviarForm">Confirmar</button>
+                        <button type="button" class="botonDatos" id="cancelarForm">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-container" id="modalFormTakeAway">
+            <div class="modalDatos">
+                <h2>Ingresá los siguientes datos</h2>
+                <form action="">
+                    <label for="swal-input1">Nombre:</label>
+                    <input id="swal-input1" class="input" required>
+                    <p class="textoForm">Aclaraciones del pedido:</p>
+                    <textarea name="" id="" cols="30" rows="3" class="input"></textarea>
+                    <div class="botonesForm" id= "botonesForm">
+                        <button type="button" class="botonDatos enviarForm" id="enviarFormTakeAway">Confirmar</button>
+                        <button type="button" class="botonDatos" id="cancelarFormTakeAway">Cancelar</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="modal-container" id="modalPedido">
-            <div class="tarjetaFinalizarPedido">
+            <div class="modalFinPedido">
                 <div class="pedidoAceptado">
                     <h2>Tu pedido fue aceptado</h2>
                     <p>Dentro de 30 minutos va a estar listo para que lo pases a buscar por el local.</p>
@@ -74,7 +87,7 @@
             </div>
         </div>
         <div class="modal-container" id="modalPedidoDelivery">
-            <div class="tarjetaFinalizarPedido">
+            <div class="modalFinPedido">
                 <div class="pedidoAceptado">
                     <h2>Tu pedido fue aceptado</h2>
                     <p>Dentro de 30 minutos va a estar llegando a tu casa.</p>

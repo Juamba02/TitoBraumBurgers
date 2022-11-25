@@ -18,6 +18,9 @@ const modalCarritoVacio = document.querySelector("#modalCarritoVacio");
 const modalForm = document.querySelector("#modalForm");
 const botonForm = document.querySelector("#enviarForm");
 const cancelarForm = document.querySelector("#cancelarForm");
+const formTakeAway = document.querySelector("#modalFormTakeAway");
+const botonConfirmarTakeAway = document.querySelector("#enviarFormTakeAway");
+const botonCancelarTakeAway = document.querySelector("#cancelarFormTakeAway");
 const form1 = document.querySelector("#swal-input1");
 const form2 = document.querySelector("#swal-input2");
 const form3 = document.querySelector("#swal-input3");
@@ -131,17 +134,11 @@ botonMenu.addEventListener("click", () => {
 });
 
 botonPedido.addEventListener("click", () => {
-    if(carrito.length > 0){
+    if(carrito.length > 0){ 
         Swal.fire({
             icon: 'question',
             title: 'Elija la forma de recibir su pedido',
             text: '(Recordá que el delivery cuesta $300 extra)',
-            html: 
-            '<p>(Recordá que el delivery cuesta $300 extra)</p>' +
-            '<div class="divAclaracion"' +
-                '<label for="textForm">Aclaraciones del pedido:</label>' +
-                '<textarea name="" id="textForm" class="input"></textarea>' +
-            '</div>',
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: 'Delivery',
@@ -154,7 +151,7 @@ botonPedido.addEventListener("click", () => {
             if (result.isConfirmed) {
                 modalForm.classList.add("container-active");
             }else if(result.isDenied){
-                modalPedido.classList.add("container-active");
+                formTakeAway.classList.add("container-active");
             }
         })
     }else{
@@ -163,8 +160,7 @@ botonPedido.addEventListener("click", () => {
 });
 
 botonForm.addEventListener("click", () => {
-    if(form1.value,form2.value,form3.value,form4.value != ``){
-        form1.value = '';
+    if(form2.value,form3.value,form4.value != ``){
         form2.value = '';
         form3.value = '';
         form4.value = '';
@@ -196,6 +192,24 @@ volverAlInicio2.addEventListener("click", () => {
     localStorage.setItem("carrito", "[]");
 });
 
-modalPedido.addEventListener("click", () => {
+botonConfirmarTakeAway.addEventListener("click", () => {
+    if(form1.value != ``){
+        form1.value = '';
+        formTakeAway.classList.remove("container-active");
+        modalPedido.classList.add("container-active");
+    }else{
+        Toastify({
+            text: "Recordá poner tu nombre",
+            duration: 1000,
+            backgroundColor: "#b61105",
+            offset: {
+                x: 110,
+                y: 60
+            },
+        }).showToast();
+    }
+})
 
+botonCancelarTakeAway.addEventListener("click", () => {
+    formTakeAway.classList.remove("container-active");
 })
