@@ -207,9 +207,10 @@ botonConfirmarTakeAway.addEventListener("click", () => {
                 y: 60
             },
         }).showToast();
+        
     }
 })
 
 botonCancelarTakeAway.addEventListener("click", () => {
-    formTakeAway.classList.remove("container-active");
+    formTakeAway.classList.remove("container-active"); 
 })
