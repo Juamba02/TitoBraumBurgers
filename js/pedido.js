@@ -21,6 +21,7 @@ const cancelarForm = document.querySelector("#cancelarForm");
 const formTakeAway = document.querySelector("#modalFormTakeAway");
 const botonConfirmarTakeAway = document.querySelector("#enviarFormTakeAway");
 const botonCancelarTakeAway = document.querySelector("#cancelarFormTakeAway");
+const form0 = document.querySelector("#swal-input0");
 const form1 = document.querySelector("#swal-input1");
 const form2 = document.querySelector("#swal-input2");
 const form3 = document.querySelector("#swal-input3");
@@ -160,7 +161,8 @@ botonPedido.addEventListener("click", () => {
 });
 
 botonForm.addEventListener("click", () => {
-    if(form2.value,form3.value,form4.value != ``){
+    if(form0.value,form2.value,form3.value,form4.value != ``){
+        form0.value = '';
         form2.value = '';
         form3.value = '';
         form4.value = '';

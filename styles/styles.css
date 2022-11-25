@@ -425,15 +425,30 @@ body {
     padding: 1em;
     border: 1px black solid;
     width: 30%;
-    height: 45%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
     text-align: center; 
+}
+
+.modalDatosTakeAway{
+    padding: 1em;
+    border: 1px black solid;
+    width: 30%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
 }
 
 .botonDatos{
@@ -696,9 +711,19 @@ footer {
         width: 70%;
     }
 
+    .modalDatosTakeAway{
+        width: 90%;
+        height: 40%;
+    }
+
     .modalDatos{
-        width: 100%;
-        height: 35%;
+        width: 90%;
+        height: 55%;
+    }
+
+    .modalFinPedido{
+        height: 40%;
+        width: 90%;
     }
 }
 
