@@ -716,18 +716,18 @@ footer {
     }
 
     .modalDatosTakeAway{
-        width: 90%;
-        height: 40%;
+        width: 350px;
+        height: 300px;
     }
 
     .modalDatos{
-        width: 90%;
-        height: 70%;
+        width: 370px;
+        height: 450px;
     }
 
     .modalFinPedido{
-        height: 40%;
-        width: 90%;
+        height: 350px;
+        width: 375px;
     }
 }
 
