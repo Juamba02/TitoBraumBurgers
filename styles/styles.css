@@ -741,9 +741,19 @@ footer {
         font-size: 1.5em;
     }
 
+    .modalDatosTakeAway{
+        width: 350px;
+        height: 300px;
+    }
+
     .modalDatos{
-        width: 100%;
-        height: 35%;
+        width: 370px;
+        height: 450px;
+    }
+
+    .modalFinPedido{
+        height: 350px;
+        width: 375px;
     }
 
 }
