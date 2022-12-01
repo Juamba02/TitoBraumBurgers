@@ -160,6 +160,7 @@ botonPedido.addEventListener("click", () => {
     }
 });
 
+
 botonForm.addEventListener("click", () => {
     if(form0.value,form2.value,form3.value,form4.value != ``){
         form0.value = '';
