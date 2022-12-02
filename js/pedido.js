@@ -32,6 +32,8 @@ const form4 = document.querySelector("#swal-input4");
 const renderTotal = () => {
     let total = carrito.reduce((total, pedido) => total += pedido.precioAct, 0);
     precioTotal.innerText = total;
+    const carritoLS = JSON.stringify(carrito);
+    localStorage.setItem("carrito", carritoLS);
 }
 
 // Creo tarjetas para cada producto que tiene el usuario en el pedido
@@ -161,7 +163,7 @@ botonPedido.addEventListener("click", () => {
 });
 
 
-botonForm.addEventListener("click", () => {
+botonForm.addEventListener("click", async (event) => {
     if(form0.value,form2.value,form3.value,form4.value != ``){
         form0.value = '';
         form2.value = '';
@@ -180,7 +182,6 @@ botonForm.addEventListener("click", () => {
             },
         }).showToast();
     }
-
 })
 
 cancelarForm.addEventListener("click", () => {
@@ -210,7 +211,6 @@ botonConfirmarTakeAway.addEventListener("click", () => {
                 y: 60
             },
         }).showToast();
-        
     }
 })
 

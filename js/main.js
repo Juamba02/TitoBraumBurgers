@@ -10,13 +10,13 @@ const numCarrito = document.querySelector("#numCarrito");
 const precioTotal = document.querySelector("#precioTotal");
 const modalRandom = document.querySelector("#burgaRandom");
 const botonRandom = document.querySelector("#botonRandom");
-const botonInicio = document.querySelector("#btnInicio");
-const botonMenu = document.querySelector("#btnMenu");
 
 // Funciones
 
 const renderNumCarrito = () => {
     numCarrito.innerText = carrito.reduce((total, pedido) => total += pedido.cantidad, 0);
+    const carritoJSON = JSON.stringify(carrito);
+    localStorage.setItem("carrito", carritoJSON);
 }
 
 const agregarAlCarrito = async (id) => {
@@ -51,8 +51,10 @@ const agregarAlCarrito = async (id) => {
 const burgaRandom = async () => {
     const resp = await fetch("../data.json");
     const data = await resp.json();
+    const numeroHamburguesas = data.length - 1;
     modalRandom.innerHTML = "";
-    const hamburguesaRandom = data[Math.round(Math.random() * 5)];
+    const hamburguesaRandom = data[Math.round(Math.random() * numeroHamburguesas )];
+    console.log(hamburguesaRandom);
         
     const div = document.createElement("div");
     div.classList = "tarjetasRandom"
@@ -138,13 +140,3 @@ botonRandom.addEventListener("click", () => {
     modalRandom.classList.add("container-active");
     burgaRandom();
 });
-
-botonInicio.addEventListener("click", () => {
-    const carritoJSON = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoJSON);
-})
-
-botonMenu.addEventListener("click", () => {
-    const carritoJSON = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoJSON);
-})
